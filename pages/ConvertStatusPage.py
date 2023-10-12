@@ -23,7 +23,7 @@ class ConvertStatusPage:
     SAVE_BUTTON = (By.XPATH, "//button[normalize-space()='Save']")
 
     CHANGE_ASSIGNEE_BUTTON = (By.XPATH, "(//button[contains(@class,' pr-3')])[1]")
-    ASSIGNEE_OPTION = (By.XPATH, "(//div[@class='flex items-center cursor-pointer p-2 ng-star-inserted'])[5]")
+    ASSIGNEE_OPTION = (By.XPATH, "(//app-select-dropdown/div/div/div/div/label)")
     EXPECTED_STATUS_TEXT = "status changed from"
 
     name = data.c[1]+" "+data.c[0]

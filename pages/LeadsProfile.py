@@ -34,7 +34,7 @@ class LeadsProfile:
     def clickToChangeAssignedPerson(self):
         self.driver.find_element(By.XPATH, self.assignedPerson_XPATH).click()
         time.sleep(2)
-        self.driver.find_element(By.XPATH, "(//div[@class='flex items-center cursor-pointer p-2 ng-star-inserted'])[4]").click()
+        self.driver.find_element(By.XPATH, "(//app-select-dropdown/div/div/div/div/label)[2]").click()
         time.sleep(3)
         actuall=self.driver.find_element(By.XPATH,"//div[@class='ng-star-inserted']//p").text
         if "assigned" in actuall:
@@ -111,7 +111,7 @@ class LeadsProfile:
             self.ll.append(False)
     def clickToChange_CampaignType(self):
         self.driver.find_element(By.XPATH, self.campaignButton_XPATH).click()
-        self.driver.find_element(By.XPATH, "(//div[@class='flex items-center cursor-pointer p-2 ng-star-inserted'])[4]").click()
+        self.driver.find_element(By.XPATH, "(//app-select-dropdown/div/div/div/div/label)[3]").click()
         time.sleep(2)
         actuall = self.driver.find_element(By.XPATH,"(//div[contains(@class,'flex flex-row justify-between px-2')]//p[@class='font-medium text-sm ng-star-inserted'])[1]").text
         if "campaign" in actuall:

@@ -1,5 +1,5 @@
 Feature:  Adding site visit on lead profile
-  @lead
+  @lead @z
   Scenario: Add site visit of feauter
     Given user navigates to -loginpage
     When user enters login details mail as "manoj.assetmonk@gmail.com" and -passwordas "Propflo@1234"
@@ -14,7 +14,7 @@ Feature:  Adding site visit on lead profile
     And click save button
     Then check site visit is added or not
 
-  @lead
+  @lead @z
   Scenario: Add site visit of past
     When click on Add site visitoption
     And fill site visit past details

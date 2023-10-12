@@ -1,5 +1,5 @@
 Feature: Adding existing lead which makes duplicate
-  @lead
+  @lead @z
   Scenario: Adding existing lead with same phone number
     When get count of duplicates
     When click on leads link to go back to lead list
@@ -10,7 +10,7 @@ Feature: Adding existing lead which makes duplicate
     Then check duplicate count is increased or not
 
 
-  @lead
+  @lead @z
   Scenario: Adding existing lead with same email and other phone number
     When get count of duplicates
     When click on leads link to go back to lead list
@@ -20,7 +20,7 @@ Feature: Adding existing lead which makes duplicate
     |Referrals  |miller         |
     Then check duplicate count is increased or not
 
-  @lead
+  @lead @z
   Scenario: Adding existing lead with same email and same phone number
     When get count of duplicates
     When click on leads link to go back to lead list

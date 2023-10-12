@@ -1,5 +1,5 @@
 Feature: Edit Leads profile and Check Changes applying or not
-  @lead
+  @lead @z
   Scenario: edit leads profile all fields
     Given user navigates to loginpage
     When user enters login details mail as "manoj.assetmonk@gmail.com" and passwordas "Propflo@1234"

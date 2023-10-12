@@ -25,7 +25,10 @@ def before_all(context):
         # options.add_argument('--headless')
         options.add_argument("--disable-notifications")
         options.add_experimental_option("detach", True)
-        context.driver = webdriver.Edge(options=options)
+        context.driver = webdriver.Remote(
+            command_executor='http://localhost:4444/wd/hub',
+            options=options
+        )
     else:
 
         #______________________________________________________________________________________

@@ -1,5 +1,6 @@
 import time
 
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -19,9 +20,9 @@ class LeadsPage:
     email_XPATH="//input[@id='email']"
     mobileNumber_XPATH="//input[@id='phone-number']"
     AssignedTo_XPATH="(//button[contains(@class,'pr-3')])[3]"
-    assigningPerson_XPATH="(//div[@class='flex items-center cursor-pointer p-2 ng-star-inserted'])[3]"         #"(//label[normalize-space()='kishor kharade'])[1]"
+    assigningPerson_XPATH="(//app-select-dropdown/div/div/div/div/label)[3]"         #"(//label[normalize-space()='kishor kharade'])[1]"
     campaign_XPATH="(//button[contains(@class,'pr-3')])[4]"
-    campaignSelect_XPATH="(//div[@class='flex items-center cursor-pointer p-2 ng-star-inserted'])[3]"               #"(//label[normalize-space()='bajaj'])[1]"
+    campaignSelect_XPATH="(//app-select-dropdown/div/div/div/div/label)"               #"(//label[normalize-space()='bajaj'])[1]"
     Labels_XPATH="(//button[contains(@class,'p-0')])[2]"
     RNR_XPATH="(//input[@id='selectedItem-1'])[1]"
     Description_XPATH="//textarea[@id='descriptionInfo']"
@@ -250,7 +251,10 @@ class LeadsPage:
     def clickAddLead(self):
         # zz=self.driver.find_element(By.XPATH,"(//div[@class='flex justify-between px-2'])[1]")
         # self.driver.execute_script("arguments[0].click()",zz)
-        self.driver.find_element(By.XPATH, self.AddLead_XPATH).click()
+
+        wait = WebDriverWait(self.driver, 10)
+        wait.until(EC.element_to_be_clickable((By.XPATH, self.AddLead_XPATH))).click()
+        # self.driver.find_element(By.XPATH, self.AddLead_XPATH).click()
 
 
     def enter_Mandatory_Fields(self,firstName,lastname,email,mobile,description):

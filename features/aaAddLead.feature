@@ -1,5 +1,5 @@
 Feature: Adding Lead
-  @lead
+  @lead @z
   Scenario: Add lead with mandatory fields
     Given user navigates to login page
     When user enters login details mail as "manoj.assetmonk@gmail.com" and password as "Propflo@1234"
@@ -11,7 +11,7 @@ Feature: Adding Lead
     |Ramesh |  Addi |     8309144641    | rameshaddi1111@gmail.com         |eager to buy |
     And click on save button
     Then the lead details should added successfully
-  @lead
+  @lead @z
   Scenario: create task
     When click on tasks bar
     And click on create task
@@ -21,14 +21,14 @@ Feature: Adding Lead
     And click task save
     Then ckeck task is created or not
 
-  @lead
+  @lead @z
   Scenario:edit task like clone and adding comment
     When click on tasks bar
     And click clone task and change priority and _save
     And check task is cloned or not validate in activity _area
     And click on view details on task and add _comment
     Then check in activity _area
-  @lead
+  @lead @z
   Scenario: Add notes
     When clickon Notes taskbar
     And click on create notes
