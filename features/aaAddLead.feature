@@ -2,7 +2,7 @@ Feature: Adding Lead
   @lead @z
   Scenario: Add lead with mandatory fields
     Given user navigates to login page
-    When user enters login details mail as "manoj.assetmonk@gmail.com" and password as "Propflo@1234"
+    When user enters login details mail as "masud.abdullah@bentolabs.io" and password as "Propflo@1234"
     And click login button
     And click on sales and inside that clicks leads
     And click Add Lead option

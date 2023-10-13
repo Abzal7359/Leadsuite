@@ -1,8 +1,8 @@
 Feature: checking Tasks section functionalities
-  @lead
+  @lead @s
   Scenario: back to dashboard click settings back button
     When click on setting link to go dashboard
-  @lead
+  @lead @s
   Scenario: creating task tomorrow date and validating time and date
     When go to leads
     And click one lead
@@ -10,7 +10,7 @@ Feature: checking Tasks section functionalities
     And got TASKS section
     And apply filters like assigne and date
     Then check the task is showing or not
-  @lead
+  @lead @s
   Scenario: change status from TASKS page and check in activity area
 
     When click on status change to completed
@@ -21,24 +21,24 @@ Feature: checking Tasks section functionalities
 
 
 
-  @lead
+  @lead @s
   Scenario:create task in tasks section and validate not associated
     When got TASKS section
     When create task enter details
     And click clear all and filter tomorrow
     Then validate Not Associated is displaying or not
-  @lead
+  @lead @s
   Scenario: search number in input field and check same nuber users are getting displayed or not
     When collect one phone number
     And send input this number in search field
     Then find the users with this numbers got displayed or not
 
-  @lead
+  @lead @s
   Scenario: clone task and validate in activity area
     When click on clone option of task
     Then validate in activity area
 
-  @lead
+  @lead @s
   Scenario: Add comment and validate
     When got TASKS section
     And click on task bar and add comment

@@ -18,6 +18,6 @@ Feature: Applying filter and createtab
     |source     |     type  | name            |
     |Sub        | Face      |  facebook       |
     |Source     | Digi      |  All digital    |
-    |Assign     | Venkat    |  Assigne        |
+    |Assign     | Bento    |  Assigne        |
 #    |Campa      |Baja       |  campaign       |
 #    |Created    | Kishor Kharade |  created   |

@@ -117,7 +117,7 @@ class ConvertOpportunityPage:
         x = self.driver.find_element(By.XPATH,
                                         "/html/body/app-root/app-layout/div/div/main/div/app-opportunity-onboard/div[2]/div/form/div[1]/div[2]/div/div/div[7]/div/button[1]")
         self.driver.execute_script("arguments[0].click()", x)
-        self.driver.find_element(By.XPATH, "//label[normalize-space()='Budget Issue']").click()
+        self.driver.find_element(By.XPATH, "(//app-select-dropdown/div/div/div/div/label)[2]").click()
         time.sleep(3)
 
         y = self.driver.find_element(By.XPATH, "//div[10]//div[1]//div[1]//button[1]")
