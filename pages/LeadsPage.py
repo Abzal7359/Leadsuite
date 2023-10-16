@@ -4,7 +4,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from pages.TasksPage import TasksPage
 
 
@@ -321,7 +322,9 @@ class LeadsPage:
 
 
     def clickOnTasksPage(self):
-        self.driver.find_element(By.XPATH, self.Tasks_XPATH).click()
+        wait = WebDriverWait(self.driver, 10)
+        wait.until(EC.element_to_be_clickable((By.XPATH,  self.Tasks_XPATH))).click()
+        # self.driver.find_element(By.XPATH, self.Tasks_XPATH).click()
 
         return TasksPage(self.driver)
 

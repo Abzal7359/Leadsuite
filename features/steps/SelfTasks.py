@@ -7,10 +7,15 @@ from pages.LeadsPage import LeadsPage
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 @when(u'click on setting link to go dashboard')
 def step_impl(context):
+    global wait
+    wait = WebDriverWait(context.driver, 20)
+
     context.driver.find_element(By.XPATH,"//div[contains(text(),'Settings')]").click()
     time.sleep(3)
 
@@ -31,6 +36,7 @@ def step_impl(context):
 
 @when(u'create task and get date and time')
 def step_impl(context):
+
     global assigne, date_time
     context.LP = LeadsPage(context.driver)
     context.TP = context.LP.clickOnTasksPage()
@@ -40,11 +46,14 @@ def step_impl(context):
     context.TP.clickOnTaskSave()
     assigne = context.driver.find_element(By.XPATH, "//app-task/div/div[3]/div/div/div[5]/div/p[3]/span/span[2]").text
     date_time = context.driver.find_element(By.XPATH, "//div[5]/div/p[4]/span/span[2]").text
+    time.sleep(2)
 
 
 @when(u'got TASKS section')
 def step_impl(context):
-    context.driver.find_element(By.XPATH, "(//span[contains(text(),'Tasks')])[1]").click()
+
+    # context.driver.find_element(By.XPATH, "(//span[contains(text(),'Tasks')])[1]").click()
+    wait.until(EC.element_to_be_clickable((By.XPATH, "(//span[contains(text(),'Tasks')])[1]"))).click()
     time.sleep(2)
 
 
@@ -169,7 +178,9 @@ def step_impl(context):
 
 @Then(u'validate Not Associated is displaying or not')
 def step_impl(context):
-    c = context.driver.find_element(By.XPATH, "(//p[@class='text-xs text-red-500 text-left'])[1]").text
+    wait = WebDriverWait(context.driver, 20)
+    element = wait.until(EC.element_to_be_clickable((By.ID, "(//p[@class='text-xs text-red-500 text-left'])[1]")))
+    c = element.text
     assert "Not Associated" == c
 
 @when(u'collect one phone number')
@@ -232,7 +243,8 @@ def step_impl(context):
 @Then(u'validate the commnet added or not')
 def step_impl(context):
     v=context.driver.find_element(By.XPATH,"//div[2]/div[6]/div/div[2]/p").text
-    context.driver.find_element(By.XPATH,"//form/div/div[1]/div[1]/div[2]/button//*[name()='svg']").click()
+    wait.until(EC.element_to_be_clickable((By.XPATH, "//form/div/div[1]/div[1]/div[2]/button//*[name()='svg']"))).click()
+    # context.driver.find_element(By.XPATH,"//form/div/div[1]/div[1]/div[2]/button//*[name()='svg']").click()
     # context.driver.execute_script("arguments[0].click()",b)
     time.sleep(3)
     assert v == comment
